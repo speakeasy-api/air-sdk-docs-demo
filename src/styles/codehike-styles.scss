@@ -1,0 +1,18 @@
+@import 'utils/mixins';
+
+.ch-codegroup, .ch-codeblock {
+  border-radius: calc(1.5 * var(--base-border-radius)) !important;
+
+  box-shadow: 0 13px 27px -5px primary-color($alpha: .075) !important;
+
+  .ch-code-button, .ch-editor-button {
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+  }
+
+  &:hover {
+    .ch-code-button, .ch-editor-button {
+      opacity: 1;
+    }
+  }
+}

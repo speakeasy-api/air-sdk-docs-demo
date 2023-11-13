@@ -1,0 +1,33 @@
+# The title of your site, shown in the browser tab.
+title: Speakeasy Bar SDK Docs
+
+# Any valid CSS color for setting the primary color of your site. E.g. #75f96f or green.
+# You must restart the server for this to take effect.
+# You can provide a light and dark color, in case your primary color doesn't show up well in both themes.
+primaryColor:
+  dark: rgb(251, 227, 50)
+  light: rgb(22, 21, 14)
+
+# The logo to display, based on current theme.
+# You can use a relative path or a URL. If you use a relative path, make sure the file is in the public folder.
+logo:
+  dark: /logo-dark.png
+  light: /logo-light.png
+  # The link to go to when clicking the logo
+  link: https://www.speakeasyapi.dev/
+
+# The favicon to display. You can use a relative path or a URL.
+# If you use a relative path, make sure the file is in the public folder.
+favicon: /favicon.png
+
+# The code theme to use for usage snippets. See https://codehike.org/docs/themes for a list of themes.
+codeTheme: material-darker
+
+# The fonts to use. You can use any font from Google Fonts. See https://fonts.google.com/ for a list of fonts.
+fonts:
+  main:
+    name: Inter
+    url: https://fonts.googleapis.com/css2?family=Inter&display=swap
+  code:
+    name: IBM Plex Mono
+    url: https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap

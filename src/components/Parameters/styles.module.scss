@@ -1,0 +1,43 @@
+@import '../../styles/utils/mixins';
+
+.parameterHeading {
+  @include flex(row);
+
+  h3 {
+    @include generatePxToRem('margin-right', 6);
+  }
+}
+
+.parameters {
+  @include generatePxToRem('margin', 20 0);
+
+  h5 {
+    font-family: var(--font-family-mono);
+    font-weight: normal;
+    @include generatePxToRem('font-size', 15);
+    @include generatePxToRem('margin', 0 0 8 0);
+
+    // Styling for parameter types
+    em {
+      font-style: normal !important;
+    }
+
+    > em {
+      color: var(--text-emphasis);
+    }
+
+    > a > em {
+      color: var(--text-emphasis);
+    }
+  }
+
+  p {
+    @include generatePxToRem('font-size', 14);
+    @include generatePxToRem('line-height', 20);
+    @include generatePxToRem('margin', 10 0);
+  }
+
+  > hr {
+    @include generatePxToRem('margin', 20 0, !important);
+  }
+}

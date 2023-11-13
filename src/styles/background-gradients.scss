@@ -1,0 +1,56 @@
+body::before, body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  width: 50%; /* Equal width left and right */
+  height: 110%;
+  background-repeat: repeat-y; /* The image will repeat vertically */
+  @include desktopMax1400 {
+    background-size: contain;
+    scale: 1.5;
+    top: 50%;
+    width: 70%;
+    background-repeat: no-repeat;
+  }
+}
+
+// Background gradient behind sidebar
+.nextra-sidebar-container::before {
+  content: "";
+  position: absolute;
+
+  width: 500px;
+  height: 100vh;
+  opacity: .075;
+  background-image: radial-gradient(#{var(--primary-color)}, transparent 70%);
+  left: -250px;
+  top: -100px;
+  z-index: -1;
+  transform: rotate(7deg);
+}
+
+// Main background gradient
+body:before {
+  width: 2000px;
+  height: 2000px;
+
+  opacity: .1;
+  background-image: radial-gradient(#{var(--primary-color)}, transparent 70%);
+  transform: rotate(17deg);
+  right: -500px;
+  top: 50vh;
+  z-index: -1;
+}
+
+// Secondary background gradient
+body:after {
+  width: 1200px;
+  height: 1200px;
+
+  opacity: .05;
+  background-image: radial-gradient(#{var(--primary-color)}, transparent 70%);
+  transform: rotate(17deg);
+  right: 300px;
+  top: 10vh;
+  z-index: -1;
+}

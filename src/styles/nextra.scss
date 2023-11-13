@@ -1,0 +1,101 @@
+@import 'utils/mixins';
+
+/* Make the top level container take up the entire page.
+/* Without this, there are large margins on the left and right */
+div .nx-max-w-\[90rem\] {
+  max-width: 100%;
+}
+
+div .nx-max-w-6xl {
+  max-width: 100%;
+}
+
+/* This is where the TOC normally lives. Because we hide it, we need to make its container have no width
+/* or else the middle section appears off center */
+div .nx-w-64 {
+  width: 0;
+}
+
+.nextra-breadcrumb {
+  display: none !important;
+}
+
+.nextra-sidebar-container {
+  & button {
+    border-radius: var(--base-border-radius);
+  }
+
+  .active > button {
+    background-color: var(--primary-color);
+    background-image: var(--gradient-heading);
+
+    & p {
+      font-weight: bold;
+      color: var(--primary-color-contrast-text);
+    }
+  }
+
+  input {
+    height: 48px;
+    padding: 8px 16px;
+  }
+
+  .nx-px-4 {
+    padding-right: 1.7rem;
+  }
+
+  .nextra-search {
+    display: block;
+  }
+}
+
+.nextra-menu-desktop, .nextra-menu-mobile {
+
+  .nx-mt-5 {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    &:before {
+      display: none;
+    }
+  }
+
+  a, button {
+    width: 100%;
+    padding: 0;
+
+    > svg {
+      display: none;
+    }
+
+    &:hover {
+      background-color: transparent!important;
+    }
+  }
+}
+
+.nextra-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: var(--bcg-color-scrollbar-thumb);
+  @include generatePxToRem('border-radius', 12);
+}
+
+.nextra-toc {
+  display: none !important;
+}
+
+.nextra-nav-container {
+  z-index: 2000 !important;
+}
+
+.nextra-nav-container-blur {
+  background-color: var(--color-page-background) !important;
+  --tw-shadow: none !important;
+}
+
+@supports (-webkit-backdrop-filter:blur(1px)) or ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  :is(html[class~=dark] .nextra-nav-container-blur) {
+    background-color: var(--color-page-background) !important;
+  }
+}

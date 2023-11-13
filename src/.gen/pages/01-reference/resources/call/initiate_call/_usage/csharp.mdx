@@ -1,0 +1,18 @@
+```csharp InitiateCall.cs
+using Air;
+using Air.Models.Components;
+
+var sdk = new Air(
+    security: new Security() {
+        BearerAuth = "",
+    }
+);
+
+var res = await sdk.Call.InitiateCallAsync(new Call() {
+    Metadata = new Metadata() {},
+    Phone = "678-685-8466 x3428",
+    PromptId = 56713,
+});
+
+// handle response
+```

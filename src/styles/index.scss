@@ -1,0 +1,339 @@
+@import 'utils/mixins';
+@import './nextra';
+@import './codehike-styles';
+@import './background-gradients';
+@import './theme.js';
+
+:root {
+  --primary-lightness: #{map-get($primaryLight, lightness)};
+  --primary-chroma: #{map-get($primaryLight, chroma)};
+  --primary-hue: #{map-get($primaryLight, hue)};
+
+  --primary-color: #{$primaryHexLight};
+  --secondary-color: #{primary-color($lightness: 1.4, $hue: 1.1)};
+
+  --primary-color-contrast-text: #{text-contrast($primaryHexLight)};
+
+  --font-family: #{$mainFont}, serif;
+  --font-family-mono: #{$codeFont}, sans-serif;
+  --base-border-radius: 8px;
+
+  --color-page-background: #ffffff;
+  --color-footer-background: #ffffff;
+  --color-footer-text: #222;
+  --color-paper: #e5e5e5;
+
+  --component-highlights-item-width: calc(100vw - 100px);
+  --text-heading: #222;
+  --text-subheading: #313131;
+  --text-body: #4C4C4C;
+  --hr-color: rgb(207, 207, 215);
+
+  --text-heading-opacity: 1;
+  --text-link: var(--primary-color);
+  --text-emphasis: #{primary-color($lightness: .6, $chroma: .5)};
+  --gradient-heading: linear-gradient(45deg, var(--primary-color) 20%, var(--secondary-color));
+  --heading-sidebar-bg-color: var(--primary-color);
+
+  --method-pill-bg-color: #EAEAEE;
+
+  --status-color-informative: #DAD6CB;
+  --status-color-success: #A8E858;
+  --status-color-redirect: #FFC737;
+  --status-color-error: #FF756C;
+
+  --stroke-opacity: 1;
+
+  &.dark {
+    --primary-lightness: #{map-get($primaryDark, lightness)};
+    --primary-chroma: #{map-get($primaryDark, chroma)};
+    --primary-hue: #{map-get($primaryDark, hue)};
+
+    --primary-color: #{$primaryHexDark};
+    --secondary-color: #{primary-color($lightness: .7, $hue: 1.1)};
+
+    --primary-color-contrast-text: #{text-contrast($primaryHexDark)};
+
+    --color-page-background: #171717;
+    --color-footer-background: #121212;
+    --color-footer-text: #CCD9E0;
+    --color-paper: #262626;
+
+    --text-heading: #ffffff;
+    --text-subheading: #e7e7e7;
+    --text-body: #ACACAC;
+    --hr-color: rgba(201, 201, 208, 0.15);
+
+    --text-heading-opacity: 1;
+    --text-link: var(--primary-color);
+    --text-emphasis: #{primary-color($lightness: 1.65)};
+
+    --gradient-heading: linear-gradient(45deg, var(--primary-color) 20%, var(--secondary-color));
+
+    --method-pill-bg-color: #414142;
+
+    --status-color-informative: #5F5C50;
+    --status-color-success: #71CC47;
+    --status-color-redirect: #C59D39;
+    --status-color-error: #CD4138;
+
+    --stroke-opacity: 0.87;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --component-highlights-item-width: 325px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --component-highlights-image-height: 850px;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --quick-nav-display: block;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  backface-visibility: hidden;
+}
+
+body {
+  @include generatePxToRem(min-width, 320);
+  position: relative;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  line-height: unset;
+  scroll-behavior: unset;
+  color: var(--text-body);
+  -webkit-text-size-adjust: 100%;
+  /* Provide a default family for portalled elements not using themes (e.g. Primitives examples) */
+  font-family: Inter, serif;
+  background-color: var(--color-page-background) !important;
+
+  p {
+    @include generatePxToRem(font-size, 16);
+    @include generatePxToRem(margin-bottom, 24);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 152%;
+  }
+}
+
+svg {
+  display: block;
+  vertical-align: middle;
+  overflow: visible;
+}
+
+pre {
+  margin: 0;
+}
+
+#__next {
+  position: relative;
+  z-index: 0;
+}
+
+.radix-themes[data-is-root-theme='true'] {
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--text-heading);
+}
+
+h1, h2, h3, h4, h5, p {
+  margin: 0;
+}
+
+h1, h2 {
+  @include generatePxToRem(font-size, 32);
+  @include generatePxToRem(margin-bottom, 32);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 128%;
+  letter-spacing: -0.2px;
+}
+
+h3 {
+  @include generatePxToRem(font-size, 24);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 152%;
+  letter-spacing: -0.2px;
+}
+
+h4 {
+  @include generatePxToRem(font-size, 18);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 152%;
+  letter-spacing: -0.2px;
+}
+
+h5 {
+  @include generatePxToRem(font-size, 14);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 152%;
+}
+
+h6 {
+  @include generatePxToRem(font-size, 12);
+  @include generatePxToRem(margin-bottom, 8);
+  font-weight: bold;
+  line-height: 152%;
+  letter-spacing: 2.4px;
+  color: var(--text-body);
+
+  em {
+    font-style: normal;
+    background: var(--gradient-heading);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+  }
+}
+
+section {
+  @include generatePxToRem(width, 700);
+  margin: 0 auto;
+}
+
+hr {
+  @include generatePxToRem(margin, 48 0, !important);
+  border-color: var(--hr-color) !important;
+  width: 100%;
+}
+
+main {
+  @include generatePxToRem(padding, 38, !important);
+  position: relative;
+  max-width: 100% !important;
+
+  @include tabletsMax768 {
+    @include generatePxToRem(padding, 24, !important);
+  }
+
+  @include mobile {
+    @include generatePxToRem(padding, 24 16 16, !important);
+  }
+}
+
+article {
+  justify-content: flex-start !important;
+}
+
+table {
+  //width: 600px;  // Will test this css function for table responsive (width: clamp(320px, 600px, 600px);)!!!
+  //border: 1px solid var(--code-block-border);
+  //@include generatePxToRem(border-radius, 16);
+  overflow: initial !important;
+
+  thead {
+    display: none;
+  }
+
+  tbody {
+    td, tr {
+      border-width: 0 !important;
+    }
+
+    tr {
+      @include tabletsMax768 {
+        @include flex(column);
+      }
+
+      &:last-child {
+        > td {
+
+          //&:first-child {
+          //  @include generatePxToRem(border-radius, 0 0 0 16, !important);
+          //}
+          //
+          //&:last-child {
+          //  @include generatePxToRem(border-radius, 0 0 16 0, !important);
+          //}
+        }
+      }
+
+      td {
+        &:first-child, &:last-child {
+          @include generatePxToRem(padding, 16);
+        }
+
+        &:not(:first-child) {
+          width: 100%;
+          @include table-description-text();
+        }
+      }
+    }
+  }
+
+  .success, .warning, .error {
+    @include table-first-column-text(400);
+    @include generatePxToRem(padding, 1 4);
+    @include generatePxToRem(border-radius, 4);
+  }
+
+  .default {
+    @include table-first-column-text(500);
+    @include generatePxToRem(padding, 1 4);
+    @include generatePxToRem(border-radius, 4);
+    color: var(--default-response-code-color);
+    background-color: var(--default-response-code-bcg-color);
+  }
+
+  .success {
+    color: var(--success-response-code-color);
+    background-color: var(--success-response-code-bcg-color);
+  }
+
+  .warning {
+    color: var(--warning-response-code-color);
+    background-color: var(--warning-response-code-bcg-color);
+  }
+
+  .error {
+    color: var(--error-response-code-color);
+    background-color: var(--error-response-code-bcg-color);
+  }
+}
+
+.warning {
+  @include table-first-column-text(400);
+  @include generatePxToRem(padding, 1 4);
+  @include generatePxToRem(border-radius, 4);
+  color: var(--warning-response-code-color);
+  background-color: var(--warning-response-code-bcg-color);
+}
+
+//
+//strong {
+//  @include table-first-column-text(500);
+//  @include generatePxToRem(padding, 1 4);
+//  @include generatePxToRem(border-radius, 4);
+//  color: var(--default-response-code-color);
+//  background-color: var(--default-response-code-bcg-color);
+//}

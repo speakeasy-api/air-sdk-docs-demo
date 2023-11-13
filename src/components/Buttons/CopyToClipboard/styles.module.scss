@@ -1,0 +1,23 @@
+@import '@/src/styles/utils/mixins';
+
+.button {
+  @include flex(row, center, center);
+  @include generatePxToRem(padding, 8);
+  @include generatePxToRem(border-radius, 8);
+  background-color: var(--code-background) !important;
+  border: 1px solid var(--code-block-border);
+  cursor: pointer;
+  svg path {
+    stroke: var(--text-heading);
+    stroke-opacity: var(--stroke-opacity);
+  }
+  &:hover {
+    border-color: $select-hover;
+    svg path:nth-of-type(1) {
+      stroke: url(#paint0_linear_459_12127);
+    }
+    svg path:nth-of-type(2) {
+      stroke: url(#paint1_linear_459_12127);
+    }
+  }
+}

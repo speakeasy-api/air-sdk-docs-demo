@@ -1,0 +1,13 @@
+@import '@/src/styles/utils/mixins';
+
+.logo {
+  @include mobile {
+    @include generatePxToRem(width, 124);
+    @include generatePxToRem(height, 24);
+  }
+  .path {
+    fill: var(--text-heading);
+    fill-opacity: var(--text-heading-opacity);
+  }
+
+}

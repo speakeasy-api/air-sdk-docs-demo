@@ -1,0 +1,20 @@
+@import '@/src/styles/utils/mixins';
+
+.toggle {
+  @include generatePxToRem(margin-left, 24);
+  label {
+    @include flex(row, center, center);
+    @include generatePxToRem(column-gap, 8);
+    cursor: pointer;
+    span {
+      @include tabletsMax768 {
+        display: none;
+      }
+    }
+  }
+}
+
+.checkedIcon {
+  @include flex(row, center, center);
+  height: 100%;
+}

@@ -1,0 +1,72 @@
+@import '@/src/styles/utils/mixins';
+
+.footer {
+  width: 100%;
+  position: relative;
+  @include flex(column, space-between, flex-start);
+  gap: 40px;
+  padding: 88px 128px;
+  background-color: var(--color-footer-background);
+
+  @media (max-width: 1130px) {
+    align-items: center;
+  }
+
+  @include tabletsMax768 {
+    padding: 48px 24px;
+  }
+
+  &_links {
+    width: 100%;
+    @include flex(row, space-between, initial, wrap);
+    gap: 20px;
+    z-index: 2;
+
+    @media (max-width: 1130px) {
+      gap: 80px;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include mobile {
+      align-items: flex-start;
+    }
+
+    &_general {
+      @include flex(row, flex-start, flex-end);
+      gap: 32px;
+
+      @media (max-width: 1130px) {
+        align-items: center;
+      }
+
+      @include mobile {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      &_link {
+        @include footer-links-text();
+      }
+    }
+
+    &_social {
+      @include flex(column, flex-end, flex-end, nowrap);
+      gap: 32px;
+
+      @media (max-width: 1130px) {
+        width: 100%;
+        align-items: center;
+      }
+
+      &_icons {
+        display: flex;
+        gap: 24px;
+      }
+
+      &_inc {
+        @include footer-inc-text();
+      }
+    }
+  }
+}

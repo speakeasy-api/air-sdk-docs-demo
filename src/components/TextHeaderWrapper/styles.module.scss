@@ -1,0 +1,12 @@
+@import '@/src/styles/utils/mixins';
+
+.anchor {
+  @include generatePxToRem(width, 25);
+  @include generatePxToRem(font-size, 20);
+  font-family: var(--font-family-mono);
+  color: var(--text-body);
+
+  &:hover {
+    color: var(--text-link);
+  }
+}

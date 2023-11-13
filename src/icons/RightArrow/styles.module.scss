@@ -1,0 +1,24 @@
+.right_arrow {
+  transition: all .4s ease;
+
+  &.nested {
+    rotate: 90deg;
+  }
+
+  &.active {
+    rotate: 90deg;
+
+    &.nested {
+      rotate: -90deg;
+    }
+  }
+
+  &_path {
+    stroke: var(--text-heading);
+    fill-opacity: var(--text-heading-opacity);
+
+    &.nested {
+      stroke: var(--text-link-and-collapse);
+    }
+  }
+}

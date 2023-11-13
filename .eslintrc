@@ -1,0 +1,107 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "next",
+    "next/core-web-vitals",
+    "plugin:prettier/recommended"
+  ],
+  "env": {
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "import",
+    "simple-import-sort",
+    "unused-imports",
+    "prettier",
+    "@typescript-eslint/eslint-plugin"
+  ],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "project": "./tsconfig.json",
+        "alwaysTryTypes": true
+      }
+    }
+  },
+  "parserOptions": {
+    "tsconfigRootDir": "./",
+    "sourceType": "module",
+    "ecmaVersion": 2019
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-empty-function": "warn",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "import/no-unresolved": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "sibling",
+          "parent",
+          "index",
+          "unknown"
+        ],
+        "newlines-between": "always"
+      }
+    ],
+    "no-shadow": 0,
+    "spaced-comment": ["error", "always"],
+    "no-inline-comments": [
+      "error",
+      {
+        "ignorePattern": "TODO"
+      }
+    ],
+    "arrow-body-style": "error",
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": ["return", "while", "switch", "block", "if", "for"]
+      },
+      {
+        "blankLine": "always",
+        "prev": ["block", "while", "switch", "if", "for"],
+        "next": "*"
+      }
+    ],
+    "no-console": [
+      "error",
+      {
+        "allow": ["warn", "error", "info"]
+      }
+    ],
+    "no-duplicate-imports": "error",
+    "curly": "error",
+    "lines-between-class-members": ["error", "always"],
+    "@typescript-eslint/no-extra-semi": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@next/next/no-img-element": "off",
+    "no-case-declarations": "off",
+    "react-hooks/exhaustive-deps": "off"
+  },
+  "ignorePatterns": ["node_modules", "out", ".next", "next.config.js"]
+}

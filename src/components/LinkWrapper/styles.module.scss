@@ -1,0 +1,30 @@
+@import '@/src/styles/utils/mixins';
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 152%;
+  border-bottom: 1px solid var(--text-link);
+  border-radius: 0;
+  margin-bottom: 1px;
+
+  column-gap: 4px;
+
+  svg {
+    height: 1em;
+    width: 1em;
+    padding-bottom: 2px;
+
+    stroke: currentColor;
+  }
+
+  &:hover {
+    border-bottom: 2px solid var(--text-link);
+    margin-bottom: 0;
+
+    filter: brightness(1.1);
+  }
+}

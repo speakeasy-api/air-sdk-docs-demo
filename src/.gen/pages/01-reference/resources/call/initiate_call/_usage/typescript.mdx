@@ -1,0 +1,19 @@
+```typescript InitiateCall.ts
+import { Air } from "@air-ai/air-sdk-typescript";
+
+(async() => {
+  const sdk = new Air({
+    bearerAuth: "",
+  });
+
+  const res = await sdk.call.initiateCall({
+    metadata: {},
+    phone: "678-685-8466 x3428",
+    promptId: 56713,
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```

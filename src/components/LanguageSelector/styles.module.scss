@@ -1,0 +1,51 @@
+@import '@/src/styles/utils/mixins';
+
+.select {
+  @include generatePxToRem(width, 36);
+  @include generatePxToRem(height, 36);
+  @include flex(column, center, center);
+
+  @include generatePxToRem(border-radius, 8);
+
+  transition: all .2s ease;
+
+  svg {
+    width: 26px;
+    height: 26px;
+
+    filter: grayscale(1);
+  }
+
+  &.active {
+    svg {
+      filter: grayscale(0);
+    }
+  }
+
+  &:hover {
+    svg {
+      filter: grayscale(0);
+    }
+  }
+}
+
+.menu {
+  background-color: var(--color-paper);
+  border: 1px solid var(--hr-color);
+  @include generatePxToRem(border-radius, 8);
+}
+
+.menuItem {
+  color: var(--text-body);
+  border: 3px solid transparent;
+  background-color: transparent;
+
+  &:hover {
+    border-left-color: var(--text-body);
+    color: var(--text-heading)
+  }
+
+  &.active {
+    border-left-color: var(--text-body);
+  }
+}

@@ -1,0 +1,35 @@
+@import '../../styles/utils/mixins';
+
+.statusCodes {
+  @include generatePxToRem('font-size', 14);
+
+  &_code {
+    font-family: var(--font-family-mono);
+    font-weight: normal;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      @include generatePxToRem('margin-right', 6);
+    }
+  }
+
+  &_codeInformative::before {
+    background-color: var(--status-color-informative);
+  }
+
+  &_codeSuccess::before {
+    background-color: var(--status-color-success);
+  }
+
+  &_codeRedirect::before {
+    background-color: var(--status-color-redirect);
+  }
+
+  &_codeError::before {
+    background-color: var(--status-color-error);
+  }
+}

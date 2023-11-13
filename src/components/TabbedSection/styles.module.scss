@@ -1,0 +1,78 @@
+@import '../../styles/utils/mixins';
+
+.tabbedSection {
+  border-radius: var(--base-border-radius);
+  border: 1px solid var(--hr-color);
+  backdrop-filter: blur(10px);
+  @include generatePxToRem('margin', 10 0);
+  padding: 0;
+  overflow: hidden;
+
+  // Make the breaks extend edge-to-edge
+  hr {
+    width: 120%;
+    @include generatePxToRem('margin', 12 -12 16 -12, !important);
+  }
+
+  &_heading {
+    @include flex(row, initial, stretch, nowrap);
+    transition: all 0.5s ease;
+  }
+
+  &_tabLabel {
+    @include generatePxToRem('font-size', 14);
+    @include generatePxToRem('padding-left', 16);
+    @include generatePxToRem('padding-right', 12);
+    @include generatePxToRem('padding-top', 8);
+    @include generatePxToRem('padding-bottom', 8);
+    border-bottom: 1px solid var(--hr-color);
+  }
+
+  &_tabButton {
+    @include generatePxToRem('font-size', 14);
+    border-left: 1px solid var(--hr-color);
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+    @include generatePxToRem('padding-left', 12);
+    @include generatePxToRem('padding-right', 12);
+    @include generatePxToRem('padding-top', 8);
+    @include generatePxToRem('padding-bottom', 8);
+
+    &_title {
+      font-family: var(--font-family-mono);
+      font-weight: normal;
+    }
+
+    &:not(.tabbedSection_tabButton_selected) {
+      border-bottom-color: var(--hr-color);
+    }
+  }
+
+  &_headerFill {
+    border: 0 solid var(--hr-color);
+    border-left-width: 1px;
+    border-bottom-width: 1px;
+    flex-grow: 1;
+    @include generatePxToRem('padding-left', 12);
+  }
+
+  &_body {
+    @include generatePxToRem('padding', 12);
+
+    p {
+      margin: 0;
+    }
+
+    p:not(:first-child) {
+      @include generatePxToRem('margin-top', 10);
+    }
+
+    p:not(:last-child) {
+      @include generatePxToRem('margin-bottom', 10);
+    }
+
+    :global(.ch-codeblock) {
+      margin: 0;
+      box-shadow: none;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+```go InitiateCall.go
+package main
+
+import(
+	"context"
+	"log"
+	sdkgo "github.com/airventures/sdk-go/v2"
+	"github.com/airventures/sdk-go/v2/models/components"
+)
+
+func main() {
+    s := sdkgo.New(
+        sdkgo.WithSecurity(""),
+    )
+
+    ctx := context.Background()
+    res, err := s.Call.InitiateCall(ctx, components.Call{
+        Metadata: &components.Metadata{},
+        Phone: "678-685-8466 x3428",
+        PromptID: 56713,
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.TwoHundredApplicationJSONObject != nil {
+        // handle response
+    }
+}
+```

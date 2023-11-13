@@ -1,0 +1,17 @@
+@import '@/src/styles/utils/mixins';
+
+.message {
+  width: 100%;
+  @include flex(row, initial, center, nowrap);
+  @include generatePxToRem(padding, 16 24);
+  @include generatePxToRem(gap, 10);
+  @include generatePxToRem(border-radius, 16);
+  border: 1px solid var(--code-block-border);
+  background: var(--message-bcg-color);
+  backdrop-filter: blur(10px);
+
+  > p {
+    margin: 0;
+    @include message-text();
+  }
+}

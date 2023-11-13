@@ -1,0 +1,80 @@
+{
+  "name": "<no value>",
+  "version": "",
+  "description": "Nextra docs template",
+  "private": true,
+  "scripts": {
+    "watch": "while sleep 5; do make; done",
+    "dev": "next dev",
+    "dev-watch": "next dev & npm run watch &>/dev/null",
+    "prebuild": "make",
+    "next:build": "next build",
+    "export": "next export",
+    "build": "npm run next:build",
+    "start": "next start",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint --ext .ts,.js,.tsx .",
+    "format": "npm run lint -- --fix",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "./**/*.{ts,js,jsx,tsx}": [
+      "eslint --ignore-path .gitignore --fix",
+      "prettier --ignore-path .gitignore --write"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+"
+  },
+  "author": "Speakeasy Development Ltd",
+  "license": "Elastic License 2.0",
+  "bugs": {
+    "url": "/issues"
+  },
+  "homepage": "",
+  "dependencies": {
+    "@code-hike/mdx": "^0.10.0-next.1",
+    "@mdx-js/react": "^2.3.0",
+    "@orama/plugin-nextra": "^1.2.3",
+    "@szhsin/react-menu": "4.1.0",
+    "@types/lodash": "4.14.199",
+    "chroma-js": "2.4.2",
+    "classnames": "2.3.2",
+    "js-yaml": "4.1.0",
+    "js-yaml-loader": "1.2.2",
+    "lodash": "4.17.21",
+    "next": "13.5.5",
+    "next-compose-plugins": "^2.2.1",
+    "next-themes": "0.2.1",
+    "nextra": "2.13.2",
+    "nextra-theme-docs": "2.13.2",
+    "node-sass-json-importer": "4.3.0",
+    "pnpm": "8.7.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-select": "5.7.7",
+    "react-switch": "^7.0.0",
+    "sass": "1.69.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "17.7.1",
+    "@commitlint/config-conventional": "17.7.0",
+    "@types/node": "18.11.10",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "@typescript-eslint/eslint-plugin": "6.7.0",
+    "@typescript-eslint/parser": "6.7.0",
+    "eslint": "8.49.0",
+    "eslint-config-next": "13.4.19",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-import-resolver-typescript": "3.6.0",
+    "eslint-plugin-import": "2.28.1",
+    "eslint-plugin-prettier": "5.0.0",
+    "eslint-plugin-simple-import-sort": "10.0.0",
+    "eslint-plugin-unused-imports": "3.0.0",
+    "lint-staged": "14.0.1",
+    "prettier": "3.0.3",
+    "typescript": "5.2.2"
+  }
+}

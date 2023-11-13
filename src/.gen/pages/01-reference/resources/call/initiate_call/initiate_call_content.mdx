@@ -1,0 +1,39 @@
+import CurlHeader from './_header/curl.mdx';
+import SDKHeader from './_header/sdk.mdx';
+import OperationHeader from '/src/components/OperationHeader';
+
+###### *call*
+
+<OperationHeader
+  sdkHeader={<SDKHeader />}
+  curlHeader={<CurlHeader />}
+/>
+
+{/* rendered from operation template */}
+
+import {LanguageOperation} from "/content/languages";
+import {LanguageSwitch} from "/content/languages";
+import GoParameters from "./_parameters/go.mdx";
+import GoResponse from "./_response/go.mdx";
+import GoUsage from "./_usage/go.mdx";
+import TypescriptParameters from "./_parameters/typescript.mdx";
+import TypescriptResponse from "./_response/typescript.mdx";
+import TypescriptUsage from "./_usage/typescript.mdx";
+import PythonParameters from "./_parameters/python.mdx";
+import PythonResponse from "./_response/python.mdx";
+import PythonUsage from "./_usage/python.mdx";
+import CsharpParameters from "./_parameters/csharp.mdx";
+import CsharpResponse from "./_response/csharp.mdx";
+import CsharpUsage from "./_usage/csharp.mdx";
+
+export const Operation = () => {
+    const go = <LanguageOperation  parameters={<GoParameters/>} response={<GoResponse/>} usage={<GoUsage/>}/>
+    const typescript = <LanguageOperation  parameters={<TypescriptParameters/>} response={<TypescriptResponse/>} usage={<TypescriptUsage/>}/>
+    const python = <LanguageOperation  parameters={<PythonParameters/>} response={<PythonResponse/>} usage={<PythonUsage/>}/>
+    const csharp = <LanguageOperation  parameters={<CsharpParameters/>} response={<CsharpResponse/>} usage={<CsharpUsage/>}/>
+    return <LanguageSwitch langToContent={{go, typescript, python, csharp}}/>
+}
+
+<Operation />
+
+{/* end rendered section */}

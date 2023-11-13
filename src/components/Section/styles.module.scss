@@ -1,0 +1,6 @@
+@import '@/src/styles/utils/mixins';
+
+.container {
+  @include generatePxToRem(max-width, 1400);
+  margin: auto;
+}

@@ -1,0 +1,5 @@
+@import '@/src/styles/utils/mixins';
+
+.icon path {
+  stroke: var(--text-emphasis);
+}

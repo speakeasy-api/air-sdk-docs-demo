@@ -1,0 +1,46 @@
+@import '@/src/styles/utils/mixins';
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.headings {
+  @include tabletsMax768 {
+    max-width: 100%;
+  }
+}
+
+.columnContainer {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 80px;
+
+  @include desktopMax1400 {
+    grid-auto-flow: row;
+    gap: 0;
+  }
+
+  .mainContent {
+    & > *:last-child {
+      @include desktopMin1400 {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .rightSideContent {
+    position: sticky;
+    top: 100px;
+
+    @include desktopMax1400 {
+      @include generatePxToRem(max-width, 688);
+      margin-left: 0;
+    }
+    @include tabletsMax768 {
+      max-width: 100%;
+    }
+  }
+}

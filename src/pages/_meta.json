@@ -1,0 +1,16 @@
+{
+  "-- guides": {
+    "title": "Guides",
+    "type": "separator"
+  },
+  "installation": {
+    "title": "Installation"
+  },
+  "-- resources": {
+    "title": "Resources",
+    "type": "separator"
+  },
+  "call": {
+    "title": "Call"
+  }
+}

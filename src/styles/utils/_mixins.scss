@@ -1,0 +1,222 @@
+@import './colors';
+
+/* ===Responsive mixins=== */
+
+@mixin mobile {
+  @media (max-width: 600px) { @content }
+}
+
+@mixin tabletsMax1050 {
+  @media (max-width: 1050px) { @content }
+}
+
+@mixin tabletsMax768 {
+  @media (max-width: 768px) { @content }
+}
+
+@mixin desktopMax1400 {
+  @media (max-width: 1400px) { @content }
+}
+
+@mixin desktopMin1400 {
+  @media (min-width: 1401px) { @content }
+}
+
+
+/* ===Responsive mixins=== */
+
+
+@mixin flex($fd: row, $jc: initial, $ai: initial, $fw: nowrap) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-wrap: $fw;
+}
+
+@mixin generatePxToRem($property, $values, $important: '') {
+  $remValues: ();
+
+  // Check if $values is a list or a single value
+  @if type-of($values) == list {
+    @each $value in $values {
+      $remValue: #{$value / 16}rem;
+      $remValues: append($remValues, $remValue);
+    }
+  } @else {
+    $remValue: #{$values / 16}rem;
+    $remValues: $remValue;
+  }
+
+  @if $important != '' {
+    #{$property}: #{$remValues}$important;
+  } @else {
+    #{$property}: #{$remValues};
+  }
+}
+
+/* Heading H5 */
+@mixin heading-h5($color) {
+  color: $color;
+  font-family: var(--font-family);
+  @include generatePxToRem('font-size', 14);
+  @include generatePxToRem('line-height', 21.28);
+  font-style: normal;
+  font-weight: 500;
+}
+
+@mixin sidebar-heading-separator($color) {
+  color: $color;
+  font-family: var(--font-family);
+  @include generatePxToRem('font-size', 14);
+  @include generatePxToRem('line-height', 23.84);
+  font-style: normal;
+  font-weight: bold;
+}
+
+
+
+@mixin footer-links-text() {
+  color: var(--color-footer-text);
+  font-family: var(--font-family);
+  font-weight: 500;
+  @include generatePxToRem('font-size', 16);
+  @include generatePxToRem('line-height', 16);
+  text-decoration: none;
+}
+
+@mixin footer-inc-text() {
+  color: var(--color-footer-text);
+  font-family: var(--font-family);
+  font-weight: 400;
+  @include generatePxToRem('font-size', 14);
+  @include generatePxToRem('line-height', 14.4);
+  @include generatePxToRem('letter-spacing', 0.25);
+
+  @include mobile {
+    text-align: center;
+    @include generatePxToRem('line-height', 28);
+  }
+}
+
+@mixin collapse-heading-code() {
+  font-family: var(--font-family-mono);
+  @include generatePxToRem('font-size', 12);
+  font-style: normal;
+  font-weight: 400;
+  @include generatePxToRem('line-height', 20);
+  @include generatePxToRem('letter-spacing', -0.088);
+}
+
+@mixin collapse-children-heading-text() {
+  color: var(--text-body);
+  font-family: Inter, sans-serif;
+  @include generatePxToRem('font-size', 12);
+  font-style: normal;
+  font-weight: 400;
+  @include generatePxToRem('line-height', 20);
+  @include generatePxToRem('letter-spacing', -0.088);
+}
+
+@mixin method-heading-text() {
+  font-family: var(--font-family-mono);
+  @include generatePxToRem('font-size', 10);
+  @include generatePxToRem('line-height', 15.6);
+  font-style: normal;
+  font-weight: 400;
+}
+
+@mixin collapse-sub-heading-title() {
+  color: var(--text-body);
+  font-family: var(--font-family-mono);
+  @include generatePxToRem('font-size', 12, !important);
+  font-style: normal;
+  font-weight: 700!important;
+  @include generatePxToRem('line-height', 16, !important);
+  @include generatePxToRem('letter-spacing', -0.088, !important);
+}
+
+@mixin collapse-sub-heading-input-text() {
+  color: #B5B5B5;
+  font-family: var(--font-family);
+  @include generatePxToRem('font-size', 12, !important);
+  font-style: normal;
+  font-weight: 400;
+  @include generatePxToRem('line-height', 16);
+  @include generatePxToRem('letter-spacing', -0.2);
+}
+
+@mixin table-description-text() {
+  color: var(--text-nested-description);
+  font-family: var(--font-family);
+  @include generatePxToRem(font-size, 14);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 152%;
+}
+
+@mixin table-first-column-text($fontWeight) {
+  font-family: var(--font-family-mono)!important;
+  @include generatePxToRem(font-size, 14);
+  font-style: normal;
+  font-weight: $fontWeight!important;
+  @include generatePxToRem(line-height, 16);
+}
+
+@mixin message-text() {
+  color: var(--message-text-color);
+  font-family: var(--font-family);
+  @include generatePxToRem(font-size, 14);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 152%;
+}
+
+@mixin code() {
+  color: var(--primary-code-color);
+  background: none;
+  font-family: var(--font-family-mono);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 152%;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  tab-size: 4;
+  hyphens: none;
+}
+
+@function primary-color($lightness: 1, $chroma: 1, $hue: 1, $alpha: 1) {
+  @return oklch(
+                  calc(var(--primary-lightness) * $lightness) calc(var(--primary-chroma) * $chroma) calc(var(--primary-hue) * $hue) / $alpha
+  );
+}
+
+// Source: https://jonnykates.medium.com/automating-colour-contrast-ratios-with-sass-e201f3b52797
+@function colour-difference($foreground, $background) {
+  $r: (max(red($foreground), red($background))) - (min(red($foreground), red($background)));
+  $g: (max(green($foreground), green($background))) - (min(green($foreground), green($background)));
+  $b: (max(blue($foreground), blue($background))) - (min(blue($foreground), blue($background)));
+  $sum-rgb: $r + $g + $b;
+
+  @if $sum-rgb < 500 {
+    @return "false";
+  } @else {
+    @return "true";
+  }
+}
+
+@function text-contrast($n) {
+  $color-brightness: round((red($n) * 299) + (green($n) * 587) + (blue($n) * 114) / 1000);
+  $light-color: round((red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) / 1000);
+
+  @if abs($color-brightness) < ($light-color/2){
+    @return white;
+  }
+  @else {
+    @return black;
+  }
+}

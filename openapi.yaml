@@ -1,0 +1,131 @@
+openapi: 3.0.3
+info:
+  title: Air.ai API
+  description: |-
+    Client API Documantation
+
+    Some useful links:
+    - [Temporal](https://temporal.io/)
+  termsOfService: https://chat.air.ai/terms-of-use
+  contact:
+    email: m@air.ai
+  version: 1.0.0
+servers:
+  - url: https://chat.air.ai/api/v1
+tags:
+  - name: call
+paths:
+  /calls:
+    post:
+      tags:
+        - call
+      summary: Initiate a call
+      operationId: initiateCall
+      requestBody:
+        description: Initiate a call
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Call"
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    default: "OK"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    default: "unauthorized"
+        "403":
+          description: Access Denied
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    default: "credit_card_issue"
+                  data:
+                    type: object
+                    default: ["promptId"]
+                    description: "https://github.com/colinhacks/zod"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    default: "not_found"
+                  data:
+                    type: object
+                    default: ["promptId"]
+                    description: "https://github.com/colinhacks/zod"
+        "422":
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    default: "unprocessable_entity"
+                  data:
+                    type: object
+                    default: ["promptId"]
+                    description: "https://github.com/colinhacks/zod"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    default: "internal_server_error"
+                  data:
+                    type: object
+      security:
+        - BearerAuth:
+            - write:calls
+            - read:calls
+components:
+  schemas:
+    Call:
+      required:
+        - promptId
+        - phone
+      type: object
+      properties:
+        promptId:
+          type: integer
+          format: int64
+        phone:
+          type: string
+        name:
+          type: string
+        metadata:
+          type: object
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
