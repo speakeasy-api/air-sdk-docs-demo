@@ -5,8 +5,8 @@ title: Air ai SDK Docs
 # You must restart the server for this to take effect.
 # You can provide a light and dark color, in case your primary color doesn't show up well in both themes.
 primaryColor:
-  dark: rgb(251, 227, 50)
-  light: rgb(22, 21, 14)
+  dark: "#0032f6"
+  light: "#1dcaf8"
 
 # The logo to display, based on current theme.
 # You can use a relative path or a URL. If you use a relative path, make sure the file is in the public folder.
