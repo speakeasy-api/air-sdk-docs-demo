@@ -1,0 +1,38 @@
+@import '../../styles/utils/mixins';
+
+.withStatusBar {
+  background-color: #212121;
+  border-radius: 4px;
+
+  :global(.ch-codeblock) {
+    border-radius: 0 !important;
+  }
+
+  :global(.ch-code) {
+    background: none;
+  }
+
+  &_infoBar {
+    color: #8D8D90;
+    font-family: var(--font-family);
+    font-weight: normal;
+    border-top: 1px solid #44444A;
+    @include generatePxToRem('font-size', 13);
+    @include generatePxToRem('padding-left', 16);
+    @include generatePxToRem('padding-bottom', 8);
+    @include generatePxToRem('padding-top', 7);
+    display: flex;
+    flex-direction: row;
+
+    > *:not(:last-child) {
+      @include generatePxToRem('margin-right', 16);
+    }
+  }
+
+  .value {
+    font-family: var(--font-family-mono);
+    font-weight: normal;
+    @include generatePxToRem('font-size', 13);
+    @include generatePxToRem('margin-left', 4);
+  }
+}

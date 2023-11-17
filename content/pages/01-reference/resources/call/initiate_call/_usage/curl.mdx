@@ -1,0 +1,20 @@
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "200"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```bash Example Request
+  curl https://chat.air.ai/api/v1/calls \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: '
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "status": "string"
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>
