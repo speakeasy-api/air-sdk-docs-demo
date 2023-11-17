@@ -1,4 +1,9 @@
 configVersion: 1.0.0
+management:
+  docChecksum: 5ddb05043be869e1c9cac68f02287f2b
+  docVersion: 1.0.0
+  speakeasyVersion: 1.121.1
+  generationVersion: 2.194.1
 generation:
   comments: {}
   sdkClassName: air
@@ -28,7 +33,7 @@ csharp:
   packageName: air
   published: true
 docs:
-  version: ""
+  version: 0.1.0
   imports:
     option: openapi
     paths:
