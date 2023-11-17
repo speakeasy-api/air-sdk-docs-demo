@@ -1,5 +1,10 @@
-```typescript InitiateCall.ts
-import { Air } from "@air-ai/air-sdk-typescript";
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "200"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```typescript InitiateCall.ts
+  import { Air } from "@air-ai/air-sdk-typescript";
 
 (async() => {
   const sdk = new Air({
@@ -16,4 +21,13 @@ import { Air } from "@air-ai/air-sdk-typescript";
     // handle response
   }
 })();
-```
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "status": "string"
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

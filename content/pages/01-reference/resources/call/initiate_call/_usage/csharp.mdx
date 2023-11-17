@@ -1,5 +1,10 @@
-```csharp InitiateCall.cs
-using Air;
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "200"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```csharp InitiateCall.cs
+  using Air;
 using Air.Models.Components;
 
 var sdk = new Air(
@@ -15,4 +20,13 @@ var res = await sdk.Call.InitiateCallAsync(new Call() {
 });
 
 // handle response
-```
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "status": "string"
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

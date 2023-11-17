@@ -1,11 +1,16 @@
-```go InitiateCall.go
-package main
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "200"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```go InitiateCall.go
+  package main
 
 import(
+	"github.com/airventures/sdk-go/v2/models/components"
+	sdkgo "github.com/airventures/sdk-go/v2"
 	"context"
 	"log"
-	sdkgo "github.com/airventures/sdk-go/v2"
-	"github.com/airventures/sdk-go/v2/models/components"
 )
 
 func main() {
@@ -23,8 +28,17 @@ func main() {
         log.Fatal(err)
     }
 
-    if res.TwoHundredApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
-```
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "status": "string"
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>

@@ -1,5 +1,10 @@
-```python InitiateCall.py
-import air
+
+import WithStatusBar from '@/src/components/WithStatusBar';
+
+<WithStatusBar statusItems={[["Status", "200"], ["Content-Type", "application/json"]]}>
+  <CH.Code>
+  ```python InitiateCall.py
+  import air
 from air.models import components
 
 s = air.Air(
@@ -14,7 +19,16 @@ req = components.Call(
 
 res = s.call.initiate_call(req)
 
-if res.two_hundred_application_json_object is not None:
+if res.object is not None:
     # handle response
     pass
-```
+  ```
+  ---
+
+  ```json Example Response
+  {
+    "status": "string"
+  }
+  ```
+  </CH.Code>
+</WithStatusBar>
